@@ -1,6 +1,8 @@
 # elixir
 Introduction to programming in Elixir.
 
+Based on book: `Programming Elixir >= 1.6` by `Dave Thomas`
+
 ### 1. INSTALLING
 https://elixir-lang.org/install.html
 ```bash
@@ -27,7 +29,7 @@ i Map
 ### 3. SCRIPTS
 Typically, elixir scripts have extension `.ex` (intend to be compiled into binary form) or `.exs` (can be run without compiling).
 
-Example script is in: `intro/hello.exs`
+Example script is in: `hello.exs`
 ```bash
-elixir intro/hello.exs
+elixir hello.exs
 ```
