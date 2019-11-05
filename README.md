@@ -33,3 +33,8 @@ Example script is in: `hello.exs`
 ```bash
 elixir hello.exs
 ```
+
+### AGENDA
+    1. Pattern matching
+    2. Immutability
+    3. Elixir basics
