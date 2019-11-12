@@ -38,3 +38,4 @@ elixir hello.exs
     1. Pattern matching
     2. Immutability
     3. Elixir basics
+    4. Anonymous functions
