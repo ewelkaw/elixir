@@ -49,3 +49,33 @@ Pattern matching is common for almost every functional languages. To make it in 
 
 You should also remember about the order of definitions.
 
+- **Guard clauses**
+This kind of clauses will help us distinguish based on the argument types or on some test involving their values. Guard clauses are predicates that are attached to a function definition using one or more when keywords.
+
+```elixir
+$ iex modules_and_named_functions/guard.exs
+
+Guard.what_is(8)
+Guard.what_is(:cat)
+Guard.what_is([1,2,3])
+```
+
+We can also fix our factorial function to be robust for negative values or non-numbers. 
+
+```elixir
+defmodule Factorial do
+    def of(0), do: 1
+    def of(n) when is_integer(n) and n >0 do 
+        n* of(n-1)
+    end
+end
+```
+
+```elixir
+iex> c "modules_and_named_functions/factorial_fixed.exs"
+Factorial.of(0)
+Factorial.of(3)
+Factorial.of(-3)
+```
+
+- **Guard clause liitations**
