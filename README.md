@@ -39,3 +39,4 @@ elixir hello.exs
     2. Immutability
     3. Elixir basics
     4. Anonymous functions
+    5. Modules and named functions
