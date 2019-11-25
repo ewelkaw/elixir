@@ -78,4 +78,85 @@ Factorial.of(3)
 Factorial.of(-3)
 ```
 
-- **Guard clause liitations**
+- **Guard clause limitations**
+
+**Comparison operators:**
+`==, !=, ===, !==, >, <, <=, >=`
+
+**Boolean and negation operators:**
+`or, and, not, !` 
+Note that `||` and `&&` are not allowed.
+
+**Arithmetic operators:**
+`+, -, *, /`
+
+**Join operators:**
+`<> and ++, as long as the left side is a literal`
+
+**The `in` operator:**
+Membership in a collection or range.
+
+**Type-check functions:**
+These build-in Erlang functions return true if their argument is a given type. You can find their documentation online. 
+
+is_atom     is_binary   is_bitstring    is_boolean  is_exception    is_float
+is_function is_integer  is_list         is_map      is_number       is_pid
+is_port     is_record   is_reference    is_tuple
+
+**Other functions:**
+These build-in functions return values (not true or false). Their documentation is online, on the same page as the type-check functions.
+
+abs(number)     bit_size(bitstring)     byte_size(bitstring)    div(number, number)
+elem(tuple, n)  float(term)             hd(list)                length(list)
+node()          node(pid|ref|port)      rem(number, number)     round(number)
+self()          tl(list)                trunc(number)           tuple_size(tuple)
+
+- **Default parameters**
+When you define a function, you can give a default value to any of its parameters by using the syntax `param \\ value`. When you call a function that is defined with default parameters, Elixir compares the number of arguments you are passing with the numbers of required parameters for the function. If you're passing fewer arguments than the number of required parameters then there is no match. If the two numbers are equal, then the required parameters take the values of the passed arguments, and the other parameters take their default values. If the count of passed arguments is greater than the number of required parameters, Elixir uses the excess to override the default values of some or all parameters. Parameters are matched left to right. 
+
+```elixir
+defmodule Example do
+    def func(p1, p2 \\ 2, p3 \\ 3, p4) do
+        IO.inspect [p1, p2, p3, p4]
+    end
+end
+```
+
+```elixir
+iex> c "modules_and_named_functions/example.exs"
+
+Example.func("a", "b")
+Example.func("a", "b", "c")
+Example.func("a", "b", "c", "d")
+```
+
+With different functionns definition:
+```elixir
+defmodule Params do
+    def func(p1, p2 \\ 123) 
+
+    def func(p1, p2) when is_list(p1) do
+        "You said #{p2} with a list"
+    end
+
+    def func(p1, p2) do
+        "You passed in #{p1} and #{p2}"
+    end
+end
+```
+
+```elixir
+iex> c "modules_and_named_functions/params.exs"
+
+Params.func(99)
+<!-- "You passed in 99 and 123" -->
+
+Params.func(99, "cat")    
+<!-- "You passed in 99 and cat" -->
+
+Params.func([99])
+<!-- "You said 123 with a list" -->
+
+Params.func([99], "dog")
+<!-- "You said dog with a list" -->
+```
