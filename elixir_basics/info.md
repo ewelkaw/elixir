@@ -30,7 +30,9 @@
 # pattern matching
 {status, count, action} = {:ok, 42, "next"}
 ```
-    - list - linked data structure
+
+    - list - linked data structure, remember that if string has single quotes then this is list not string
+
 ```elixir
 [1,2,3] ++ [4,5,6]  # concatenation
 [1,2,3,4] -- [2,4]  # difference

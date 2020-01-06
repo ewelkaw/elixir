@@ -160,3 +160,172 @@ Params.func([99])
 Params.func([99], "dog")
 <!-- "You said dog with a list" -->
 ```
+
+In file `modules_and_named_functions/guess.exs`, there is a module named Chop, which try to guess given by user number from declared range.
+To compile this module we need to write in terminal:
+
+```elixir
+$ iex c modules_and_named_functions/guess.exs
+iex> Chop.guess(273, 1..1000)
+```
+
+- **Private functions**
+The `defp` macro defines a private function - one that can be called only withinthe module that declares it. You can define private functions with multiple heads, just as you can with def. However, you cannot have some heads private and others public. That is, the following code is not valid:
+
+```elixir
+def fun(a) when is_list(a), do: true
+defp fun(a), do: false
+```
+
+- **Pipe operator**
+```elixir
+people = DB.find_customers
+orders = Orders.for_customers(people)
+tax = sales_tax(orders, 2018)
+filling = prepare_filling(tax)
+```
+
+We can write it using `pipe operator`:
+
+```elixir
+filling = DB.find_customers
+            |> Orders.for_customers
+            |> sales_tax(2018)
+            |> prepare_filling
+```
+
+The `|> operator` takes the result of the expressionto its left and inserts it as the first parameter of the function invocation to its right. If we would like to chain terms on the same line, we need to remember about the `& shortcut`
+
+```elixir
+(1..10) |> Enum.map(&(&1*&1)) |> Enum.filter(&(&1<40))
+```
+
+- **Modules**
+Modules provide namespaces for things you define. We've already seen them encapsultaing named functions. They also act as wrappers for macrosn structs, protocols and other modules. 
+
+```elixir
+defmodule Mod do
+    def func1 do
+        IO.puts "in func1"
+    end
+    def func2 do
+        IO.puts "in func2"
+    end
+end
+
+Mod.func1
+Mod.func2
+```
+
+```elixir
+defmodule Outer do
+    defmodule Inner do
+        def inner_func do
+            IO.puts "in inner_func"
+        end
+    end
+    def outer_func do
+        IO.puts "in outer_func"
+    end
+end
+
+Outer.outer_func
+Outer.Inner.inner_func
+```
+
+Elixir has three directives to simplify working with modules.
+1. The import directive 
+
+It brings a module's functions and/or macros into the current scope. 
+
+```elixir
+defmodule Example do
+    def func1 do
+        List.flatten([1, [2, 3], 4])
+    end
+    def func2 do
+        import List, only [flatten: 1]
+        flatten([1, [2, 3], 4])
+    end
+end
+```
+
+In imports we can use `only\except` and it helps you cut down clutter in your source files.
+
+2. The alias directive
+
+It tells about creating analias for a module tu cut down on typing.
+
+```elixir
+defmodule Example do
+    def compile_and_go(source) do
+        alias My.Other.Module.Parser, as Parser
+        alias My.Other.Module.Runner, as Runner
+    source
+        |> Parser.parse()
+        |> Runner.execute()
+    end
+end
+```
+
+3. The require directive
+
+You require a module if you want to use any macros it defines. This ensures that in macro definitions are available when your code is compiled. 
+
+- **Module attributes**
+Elixir modules each have associated metadata. Each item of metadata is called an attribute of the module and is identified by a name. Inside a module, you can access these attributes by prefixing the name with an `at` sigh `@`. You give n attribute a value using the syntax: 
+`@name value`
+
+This works only at the top level of a module, you can't set an attributeinside a function definition, but you can access them there. 
+
+```elixir
+defmodule Example do
+    @author "Dave Thomas"
+    def get_author do
+        @author
+    end
+end
+
+IO.puts "Example was written by #{Example.get_author}"
+```
+
+We can set the same attribute multiple times in a module. If you access that attribute in a named function in that module, the value you see will be the value in effect when the function is defined. 
+
+```elixir
+defmodule Example do
+    @attr "one"
+    def first do @attr
+        @attr "two"
+    def second do @attr
+end
+
+IO.puts "#{Example.second} #{Example.first}"
+```
+
+They can work as a constance or keep some info.
+- **Module names: Elixir, Erlang and Atoms**
+Modules names are just atoms, so when we call IO it becomes Elixir.IO
+
+```elixir
+iex> is_atom(IO)
+iex> to_string(IO)
+iex> :"Elixir.IO" === IO
+```
+
+also:
+
+```elixir
+iex> IO.puts 123
+iex> :"Elixir.IO" 123
+iex> my_io = IO
+iex> my_io.puts 123
+```
+- **Calling function in an Erlang Library**
+The Erlang conventions for names are different - variables start with an uppercase letter and atoms are simple lowercase names. For example, if you want to refer to Erlang in Elixir it suppose to be done like that:
+
+```elixir
+:io.format("The number is ~3.1f~n", [5.678])
+```
+
+- **Finding Librarie**
+For your apps first of all search for existing libraries on Elixir website and one that are listed at hex.pm and on GitHub. If it fails, search for built-in Erlang library, just remember that Erlang identifiers look different in Elixir (tomato (Erlang -> :tomato (Elixir))).

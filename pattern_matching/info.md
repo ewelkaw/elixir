@@ -53,7 +53,7 @@ If we didn't want to capture a value during the match, we could use the special 
 Once a variable has been bound to a value in the matching process, it keeps that value for the remainder of the match. 
 ```elixir
 [a, a] = [1, 1]
-[b, b] = [1, 2]
+[b, b] = [1, 2] # match error
 ```
 Also, there is a possibility to force elixir to use the existing value of the variable in the pattern when we prefix it with `^` - the `pin operator`.
 

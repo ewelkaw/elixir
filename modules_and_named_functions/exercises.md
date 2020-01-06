@@ -76,3 +76,35 @@ GCD.gcd(4, 3)
 Your API will be guess(actual, range), where range is Elixir rang. Your output should look this: 
 `Chop.guess(273, 1..1000)`
 
+7. Find the library functions to do the following and use them in IEx. 
+
+- Convert a float to a string with two decimal digits. (Erlang)
+    ```elixir
+    value = 12.09176
+    result = :io_lib.format("~.2f",[value])
+    List.to_string(result)
+    ```
+
+- Get the value of an operating-system environment variable. (Elixir)
+
+    ```elixir
+    prev = System.monotonic_time()
+    next = System.monotonic_time()
+    diff = next - prev
+    ```
+
+- Return the extension component of a file name (so return .exs if given "dave/test.exs"). (Elixir)
+
+    ```elixir
+    Path.extname("dave/test.exs")
+    ```
+
+- Return the process’s current working directory. (Elixir)
+
+    ```elixir
+    File.cwd
+    ```
+
+- Convert a string containing JSON into Elixir data structures. (Just find; don’t install.)
+
+    `poison library`

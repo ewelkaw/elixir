@@ -61,7 +61,7 @@ add_two.(3)
 add_five.(7)
 ```
 - **Passing functions as arguments**
-Functions arejust values, so we can pass them to other functions.
+Functions are just values, so we can pass them to other functions.
 ```elixir
 times_2 = fn n -> n * 2 end
 apply = fn (fun, value) -> fun.(value) end
