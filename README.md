@@ -40,3 +40,4 @@ elixir hello.exs
     3. Elixir basics
     4. Anonymous functions
     5. Modules and named functions
+    6. Lists and recursion
