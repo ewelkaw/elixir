@@ -46,3 +46,4 @@ https://devhints.io/elixir
     5. Modules and named functions
     6. Lists and recursion
     7. Maps, keyword lists, sets and structs
+    8. What Are Types?
