@@ -22,7 +22,7 @@
         The function `make_ref` creates a globally unique reference; no other reference will be equal to it.
 
 - **Collection types**
-    - tuple - ordered collection of values
+    - tuple - ordered collection of values, the useful access module is `elem`
 ```elixir
 {1,2}
 {:ok, 42, "next"}

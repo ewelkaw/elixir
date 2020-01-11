@@ -34,6 +34,10 @@ Example script is in: `hello.exs`
 elixir hello.exs
 ```
 
+### 3. ELIXIR CHEAT SHEET
+https://devhints.io/elixir
+
+
 ### AGENDA
     1. Pattern matching
     2. Immutability
