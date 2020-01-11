@@ -11,7 +11,7 @@
    - ordered
    - any kind of elements
    - elements can be different type
-   - [1,2,3]
+   - [:ok, 1,"user"]
 
 3. Atoms:
    - constants that represent something's name, which name is their values 
