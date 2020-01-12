@@ -34,9 +34,14 @@ Example script is in: `hello.exs`
 elixir hello.exs
 ```
 
-### 3. ELIXIR CHEAT SHEET
+### 4. ELIXIR CHEAT SHEET
 https://devhints.io/elixir
 
+
+### 5. Display char lists correctly FFS
+```
+IEx.configure inspect: [charlists: false
+```
 
 ### AGENDA
     1. Pattern matching
@@ -47,3 +52,5 @@ https://devhints.io/elixir
     6. Lists and recursion
     7. Maps, keyword lists, sets and structs
     8. What Are Types?
+    9. Processing Collections — Enum and Stream
+    10. Strings and binaries
