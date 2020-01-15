@@ -31,3 +31,4 @@ defmodule TestTax do
 end
 
 # c "9_processing_collections_enum_and_stream/add_tax.exs"
+# TestTax.result()
