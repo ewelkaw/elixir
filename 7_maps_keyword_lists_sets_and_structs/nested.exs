@@ -1,8 +1,9 @@
 defmodule Customer do
-    defstruct name: "", company: ""
+  defstruct name: "", company: ""
 end
+
 defmodule BugReport do
-    defstruct owner: %Customer{}, details: "", severity: 1
+  defstruct owner: %Customer{}, details: "", severity: 1
 end
 
 # c "7_maps_keyword_lists_sets_and_structs/nested.exs"

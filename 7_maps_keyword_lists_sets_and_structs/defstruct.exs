@@ -1,5 +1,5 @@
 defmodule Subscriber do
-    defstruct name: "", paid: false, over_18: true
+  defstruct name: "", paid: false, over_18: true
 end
 
 # c "7_maps_keyword_lists_sets_and_structs/defstruct.exs"

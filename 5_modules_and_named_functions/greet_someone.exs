@@ -1,6 +1,6 @@
 defmodule Greeting do
-    def greet(greeting, name) do
-        IO.puts greeting
-        IO.puts "How are you doing, #{name}?"
-    end
+  def greet(greeting, name) do
+    IO.puts(greeting)
+    IO.puts("How are you doing, #{name}?")
+  end
 end

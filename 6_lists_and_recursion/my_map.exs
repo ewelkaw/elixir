@@ -1,6 +1,6 @@
 defmodule MyMap do
-    def map([], _func),             do: []
-    def map([head|tail], func),     do: [func.(head) | map(tail, func)] 
+  def map([], _func), do: []
+  def map([head | tail], func), do: [func.(head) | map(tail, func)]
 end
 
 # c "lists_and_recursion/my_map.exs"

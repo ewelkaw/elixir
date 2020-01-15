@@ -50,7 +50,6 @@ def draw_text(text, options \\ []) do
 end
 
 Canvas.draw_text("hello", fg: "red", style: "italic", style: "bold")
-
 ```
 
 2. **Maps**
