@@ -44,6 +44,8 @@ IEx.configure inspect: [charlists: false
 ```
 
 ### AGENDA
+--- Conventional programming ---
+
     1. Pattern matching
     2. Immutability
     3. Elixir basics
@@ -54,3 +56,9 @@ IEx.configure inspect: [charlists: false
     8. What Are Types?
     9. Processing Collections — Enum and Stream
     10. Strings and binaries
+    11. Control flow
+    12. Organizing a project
+    13. Tooling
+
+--- Concurent programming ---
+
